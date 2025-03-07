@@ -14,13 +14,20 @@ const CreatePost = () => {
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const generateImage = () => {};
+
   const handleSubmit = () => {
     console.log(form);
   };
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleSurpriseMe = () => {};
+  const handleSurpriseMe = () => {
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm({ ...form, prompt: randomPrompt });
+  };
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -42,7 +49,7 @@ const CreatePost = () => {
             handleChange={handleChange}
           />
           <FormField
-            labelName="Your name"
+            labelName="Prompt"
             type="text"
             name="prompt"
             placeholder="A fantasy landscape with a castle and a river"
@@ -81,6 +88,18 @@ const CreatePost = () => {
             className="w-full text-white bg-green-700 font-medium rounded-md text-sm w-full py-2.5 text-center"
           >
             {generatingImg ? "Generating..." : "Generate"}
+          </button>
+        </div>
+        <div className="mt-10">
+          <p className="mt-2 text-gray-600">
+            Once you have created the image you want, you can share it with
+            others in the community
+          </p>
+          <button
+            type="submit"
+            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full py-2.5 text-center"
+          >
+            {loading ? "Sharing..." : "Share with the community"}
           </button>
         </div>
       </form>
