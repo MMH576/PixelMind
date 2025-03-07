@@ -23,6 +23,11 @@ const App = () => (
         <Route path="/create-post" element={<CreatePost />} />
       </Routes>
     </main>
+    <footer className="w-full border-t border-t-[#e6ebf4] py-8">
+      <p className="text-center text-sm text-[#666e75]">
+        PixelMind 2025. All rights reserved.
+      </p>
+    </footer>
   </BrowserRouter>
 );
 
