@@ -5,7 +5,7 @@ import cors from "cors";
 import connectDB from "./mongodb/connect.js";
 import postRoutes from "./routes/postROutes.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
-
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
